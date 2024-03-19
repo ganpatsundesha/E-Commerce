@@ -1,0 +1,73 @@
+@import "../../mixins.scss";
+
+.sectionNewsLetter {
+    padding: 40px 0;
+    background: linear-gradient(170deg, var(--yellow) 0%, var(--white) 100%);
+    text-align: center;
+
+    @include md {
+        padding: 60px 0;
+    }
+
+    @include lg {
+        padding: 80px 0;
+    }
+
+    h2 {
+        margin-bottom: 20px;
+
+        @include md {
+            margin-bottom: 40px;
+        }
+    }
+
+    p {
+        font-weight: 600;
+        margin-bottom: 20px;
+    }
+
+    form {
+        max-width: 600px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+        flex-direction: column;
+        gap: 16px;
+
+        input[type="email"] {
+            padding: 8px 20px;
+            font-size: 16px;
+            font-weight: 400;
+            width: 100%;
+            background: var(--lightRed);
+            border: none;
+            outline: none;
+            color: var(--white);
+            border-radius: 5px;
+        }
+
+        input[type="email"]::placeholder {
+            color: var(--white);
+        }
+
+        input[type="submit"] {
+            display: inline-block;
+            padding: 10px 30px;
+            font-size: 16px;
+            font-weight: 700;
+            background: var(--lightRed);
+            color: var(--white);
+            border-radius: 30px;
+            text-transform: capitalize;
+            transition: all 0.4s;
+            outline: none;
+            border: none;
+
+            &:hover {
+                background: var(--black);
+            }
+        }
+    }
+}

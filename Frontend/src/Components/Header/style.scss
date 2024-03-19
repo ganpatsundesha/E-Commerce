@@ -1,0 +1,82 @@
+@import "../../mixins.scss";
+
+.header {
+    padding: 16px 0;
+
+    .dekstop {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+    }
+
+    .site-logo {
+        max-width: 200px;
+
+        a {
+            display: flex;
+            align-items: center;
+            color: var(--black);
+            gap: 5px;
+            font-size: 24px;
+            font-weight: 600;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+    }
+
+    .nav {
+        display: flex;
+        align-items: center;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        gap: 20px;
+
+        li {
+            a {
+                color: var(--black);
+                font-weight: 500;
+
+                &:hover {
+                    color: var(--lightRed);
+                }
+            }
+
+            a.active {
+                color: var(--lightRed);
+                border-bottom: 2px solid var(--lightRed);
+                padding-bottom: 2px;
+                transition: none;
+            }
+        }
+    }
+
+    .loginCart {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        position: relative;
+
+        img {
+            max-width: 30px;
+        }
+
+        .cart-counter {
+            position: absolute;
+            right: -10px;
+            top: 0;
+            background: var(--lightRed);
+            color: var(--white);
+            font-size: 14px;
+            font-weight: 400;
+            padding: 3px;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+}

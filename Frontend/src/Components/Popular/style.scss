@@ -1,0 +1,18 @@
+@import "../../mixins.scss";
+
+.sectionPopular {
+    padding: 40px 0;
+
+    @include md {
+        padding: 60px;
+    }
+
+    h2 {
+        text-align: center;
+        margin-bottom: 20px;
+
+        @include md {
+            margin-bottom: 40px;
+        }
+    }
+}

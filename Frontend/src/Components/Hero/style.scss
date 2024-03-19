@@ -1,0 +1,49 @@
+@import "../../mixins.scss";
+
+.sectionHeroBanner {
+    padding: 40px 0;
+    background: linear-gradient(160deg, var(--yellow) 0%, var(--white) 100%);
+
+
+    @include md {
+        padding: 60px 0;
+    }
+
+    .row {
+        align-items: center;
+        flex-direction: row-reverse;
+    }
+
+    .heroText {
+        text-align: center;
+
+        @include md {
+            text-align: left;
+        }
+
+        span {
+            display: block;
+            margin-bottom: 24px;
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        h1 {
+            margin-bottom: 30px;
+            font-weight: 700;
+        }
+    }
+
+    .heroImage {
+        text-align: center;
+
+        img {
+            max-height: 500px;
+            filter: drop-shadow(5px 5px 10px black);
+
+            @include md {
+                max-height: 600px;
+            }
+        }
+    }
+}

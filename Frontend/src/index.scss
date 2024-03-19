@@ -1,0 +1,104 @@
+@import "./mixins.scss";
+
+:root {
+    font-family: "Merriweather", serif;
+    font-size: 16px;
+    line-height: 1;
+    font-weight: 500;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+    --black: #000000;
+    --white: #ffffff;
+    --yellow: #f7b030;
+    --lightRed: #b50027;
+    --gray: #DDCAE2;
+    --green: #388d5d;
+    --amazon: #067034;
+
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Merriweather", serif;
+}
+
+body {
+    height: 100%;
+    width: 100%;
+    font-family: "Merriweather", serif;
+    font-style: normal;
+}
+
+img {
+    max-width: 100%;
+    transition: all 0.4s;
+}
+
+a {
+    text-decoration: none !important;
+    transition: all 0.4s;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+// Typography
+
+h1 {
+    font-size: 34px;
+    font-weight: 700;
+
+    @include md {
+        font-size: 44px;
+    }
+
+    @include lg {
+        font-size: 54px;
+    }
+}
+
+h2 {
+    font-size: 28px;
+    font-weight: 700;
+
+    @include xsm {
+        font-size: 34px;
+    }
+
+    @include lg {
+        font-size: 44px;
+    }
+}
+
+h3 {
+    font-size: 26px;
+    font-weight: 700;
+
+    @include md {
+        font-size: 34px;
+    }
+}
+
+h4 {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+h5 {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+h6 {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+p {
+    font-size: 16px;
+    font-weight: 400;
+}
