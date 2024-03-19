@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './style.scss'
 import Container from '../../Components/Container/Container'
 import { useParams } from 'react-router-dom'
@@ -11,16 +11,13 @@ const Product = () => {
     const { productId } = useParams()
     const product = AllProducts?.find((e) => e.id === Number(productId))
 
+    useEffect(() => {
+
+    }, [product])
+
+
     return (
-        <section className="sectionProduct">
-            <Container>
-                <div className="row">
-                    <div className="col-12">
-                        <ProductDisplay product={product} />
-                    </div>
-                </div>
-            </Container>
-        </section>
+        <ProductDisplay product={product} />
     )
 }
 

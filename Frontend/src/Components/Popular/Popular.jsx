@@ -3,6 +3,7 @@ import "./style.scss"
 import Container from '../Container/Container'
 import data_product from '../../Assets/Data/data'
 import Item from '../Item/Item'
+import CtaBtn from '../CtaBtn/CtaBtn'
 
 const Popular = () => {
     return (
@@ -21,6 +22,11 @@ const Popular = () => {
                             )
                         })
                     }
+                    <div className="col-12">
+                        <div className="text-center">
+                            <CtaBtn path="/women">Explore More</CtaBtn>
+                        </div>
+                    </div>
                 </div>
             </Container>
         </section>

@@ -2,49 +2,240 @@
 
 .sectionProductPage {
     padding: 40px 0;
+    background: linear-gradient(175deg, var(--yellow) 0%, var(--white) 100%);
 
     @include md {
         padding: 60px 0;
     }
 
-    @include lg {
-        padding: 80px 0;
+    .imageBox {
+        margin-bottom: 30px;
+
+        @include lg {
+            margin-bottom: 0;
+        }
+
+        .d-flex {
+            display: block !important;
+            gap: 16px;
+
+            @include xxsm {
+                display: flex !important;
+                flex-direction: row-reverse;
+                justify-content: flex-end;
+            }
+
+            .demo {
+                display: flex;
+                flex-direction: row;
+                gap: 12px;
+                height: 100px;
+                width: 100%;
+                overflow-x: scroll;
+                overflow-y: hidden;
+
+                @include xxsm {
+                    width: 100px;
+                    flex-direction: column;
+                    overflow-x: hidden;
+                    overflow-y: scroll;
+                    height: 430px;
+                }
+
+                @include md {
+                    width: 150px;
+                }
+
+                @include lg {
+                    height: 500px;
+                }
+
+                img {
+                    border-radius: 0 !important;
+                    object-fit: cover;
+                }
+            }
+
+            .demo::-webkit-scrollbar {
+                width: 8px;
+                height: 6px;
+
+                @include xsm {
+                    height: auto;
+                }
+            }
+
+            .demo::-webkit-scrollbar-track {
+                background-color: #e7e7e7;
+                border: 1px solid #cacaca;
+                box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+            }
+
+            .demo::-webkit-scrollbar-thumb {
+                background-color: #363636;
+            }
+
+            .mainImage {
+                margin-bottom: 24px;
+
+                img {
+                    max-height: 100%;
+                    object-fit: cover;
+                    border-radius: 10px;
+                    max-width: 100%;
+                    width: 100%;
+
+                }
+
+                @include xxsm {
+                    margin-bottom: 0;
+                }
+
+                @include md {
+                    max-height: 500px;
+                }
+
+                @include lg {
+                    width: 100%;
+                }
+            }
+        }
     }
 
-    .demo {
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-        max-width: 100px;
-        height: 500px;
-        overflow: scroll;
-        overflow-x: hidden;
+    .textBox {
+        margin-left: 16px;
+
+        h4 {
+            margin-bottom: 12px;
+            max-width: 440px;
+
+            @include xsm {
+                margin-bottom: 16px;
+            }
+
+            @include md {
+                margin-bottom: 24px;
+            }
+        }
+
+        .d-flex.stars {
+            align-items: center;
+            gap: 5px;
+            margin-bottom: 16px;
+
+            p {
+                margin: 0;
+                margin-left: 10px;
+            }
+        }
+
+        .price {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 16px;
+
+            h6 {
+                margin-bottom: 0;
+            }
+
+            .old {
+                text-decoration: line-through;
+            }
+        }
+
+        .subtitle {
+            margin-bottom: 24px;
+        }
+
+        .size {
+            margin-bottom: 24px;
+
+            h5 {
+                margin-bottom: 12px;
+            }
+
+            .d-flex {
+                display: flex;
+                align-items: center;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+
+            a {
+                color: var(--black);
+                padding: 8px 16px;
+                background: var(--lightRed);
+                color: var(--white);
+
+
+                &:hover {
+                    background: var(--black);
+
+                    &::after {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+
+        p {
+            margin: 16px 0;
+            text-transform: capitalize;
+
+            a {
+                color: var(--lightRed);
+                font-weight: 600;
+                position: relative;
+
+                &::after {
+                    content: "";
+                    position: absolute;
+                    width: 100%;
+                    height: 2px;
+                    background: var(--lightRed);
+                    bottom: 0;
+                    left: 0;
+                    transition: all 0.4s;
+                }
+
+                &:hover {
+
+                    &::after {
+                        width: 0;
+                    }
+                }
+            }
+
+            strong {
+                font-weight: 400;
+                font-size: 18px;
+                color: var(--black);
+            }
+        }
     }
 
-    .demo::-webkit-scrollbar {
-        width: 8px;
-    }
+    .discriptionBox {
+        margin-top: 24px;
 
-    .demo::-webkit-scrollbar-track {
-        border-radius: 8px;
-        background-color: #e7e7e7;
-        border: 1px solid #cacaca;
-        box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
-    }
+        .box {
+            display: flex;
+            align-items: center;
+            gap: 0;
 
-    .demo::-webkit-scrollbar-thumb {
-        border-radius: 8px;
-        background-color: #363636;
-    }
+            p {
+                padding: 10px 20px;
+                border: 1px solid var(--black);
+                font-weight: 600;
+                margin-bottom: 0;
+            }
+        }
 
-    .d-flex {
-        gap: 16px;
-        align-items: flex-start;
-
-        img {
-            width: 100%;
-            max-height: 500px;
-            object-fit: cover;
+        .discription {
+            margin-top: 0;
+            padding: 16px 24px;
+            border: 1px solid var(--black);
+            max-width: 800px;
         }
     }
 }
