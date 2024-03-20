@@ -1,9 +1,10 @@
 import React from 'react'
 import './style.scss'
+import CartItems from '../../Components/CartItems/CartItems'
 
 const Cart = () => {
     return (
-        <div>Cart</div>
+        <CartItems />
     )
 }
 

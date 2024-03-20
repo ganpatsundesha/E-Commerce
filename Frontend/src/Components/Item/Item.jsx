@@ -3,9 +3,10 @@ import "./style.scss";
 import { Link } from 'react-router-dom';
 
 const Item = ({ item }) => {
+
     return (
         <Link to={`/product/${item.id}`}>
-            <div className="item">
+            <div onClick={(e) => window.scrollTo(0, 0)} className="item">
                 <div className="img-box">
                     <img src={item.image} alt={`${item.name} Image `} />
                 </div>

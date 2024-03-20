@@ -4,6 +4,7 @@ import Container from '../../Components/Container/Container'
 import { useParams } from 'react-router-dom'
 import { UseShopContext } from '../../Context/ShopContext'
 import ProductDisplay from '../../Components/ProductDisplay/ProductDisplay'
+import RelatedProducts from '../../Components/RelatedProducts/RelatedProducts'
 
 const Product = () => {
 
@@ -17,7 +18,10 @@ const Product = () => {
 
 
     return (
-        <ProductDisplay product={product} />
+        <>
+            <ProductDisplay product={product} />
+            <RelatedProducts />
+        </>
     )
 }
 

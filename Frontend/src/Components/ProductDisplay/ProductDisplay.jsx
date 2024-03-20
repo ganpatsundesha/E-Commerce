@@ -5,8 +5,11 @@ import star_icon from '../../Assets/Images/star_icon.png'
 import star_dull_icon from '../../Assets/Images/star_dull_icon.png'
 import { Link } from 'react-router-dom'
 import Container from '../Container/Container'
+import { UseShopContext } from '../../Context/ShopContext'
 
 const ProductDisplay = ({ product }) => {
+
+    const { addToCart } = UseShopContext()
     return (
         <section className='sectionProductPage'>
             <Container>
@@ -41,7 +44,7 @@ const ProductDisplay = ({ product }) => {
                                 <h6>₹ {product?.cur_price}</h6>
                             </div>
                             <div className="subtitle">
-                                <p>Wearing a huddy on a chilly day brings warmth and comfort. It's a cozy knitwear piece with a hood, perfect for staying snug outdoors. Huddies come in various styles, from sporty to chic, making them versatile and trendy</p>
+                                <p>{product.description}</p>
                             </div>
                             <div className="size">
                                 <h5>Select Size</h5>
@@ -53,8 +56,8 @@ const ProductDisplay = ({ product }) => {
                                     <a href="#">XXL</a>
                                 </div>
                             </div>
-                            <CtaBtn>Add to Cart</CtaBtn>
-                            <p><strong>Category:</strong> <Link to={"/" + product?.category}>{product?.category}</Link></p>
+                            <CtaBtn onClick={() => { addToCart(product.id) }}>Add to Cart</CtaBtn>
+                            <p><strong>Category:</strong> <Link to={"/" + product?.category} onClick={(e) => scrollTo(0, 0)}>{product?.category}</Link></p>
                             <p><strong>Tags:</strong> {product?.category}, Modern, Latest, Popular</p>
                         </div>
                     </div>
@@ -65,9 +68,8 @@ const ProductDisplay = ({ product }) => {
                                 <p>Review ({product.review})</p>
                             </div>
                             <div className="discription">
-                                <p>The Slim Fit Flannel Shirt is a versatile wardrobe essential that seamlessly combines style and comfort. Crafted from soft and durable flannel fabric, this shirt offers a cozy feel while providing a tailored silhouette with its slim fit design.</p>
-                                <p>Perfect for casual outings or layering during cooler months, its timeless appeal makes it a go-to option for any occasion. Featuring classic flannel patterns and a button-down collar, it exudes a rugged yet refined charm.</p>
-                                <p>Whether paired with jeans for a laid-back look or dressed up with chinos, this shirt effortlessly elevates your ensemble with its modern flair and superior quality.</p>
+                                <p>{product.description}</p>
+                                <p>{product.description}</p>
                             </div>
                         </div>
                     </div>

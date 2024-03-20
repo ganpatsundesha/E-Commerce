@@ -24,7 +24,7 @@ const Popular = () => {
                     }
                     <div className="col-12">
                         <div className="text-center">
-                            <CtaBtn path="/women">Explore More</CtaBtn>
+                            <CtaBtn path="/women" onClick={() => scrollTo(0, 0,)}>Explore More</CtaBtn>
                         </div>
                     </div>
                 </div>
