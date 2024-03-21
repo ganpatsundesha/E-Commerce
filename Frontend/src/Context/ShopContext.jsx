@@ -8,34 +8,35 @@ export const UseShopContext = () => {
     return shopData;
 }
 
-const getDefaultCart = () => {
-
-    let cart = {}
-
-    for (let index = 0; index < AllProducts.length + 1; index++) {
-        cart[index] = 0;
-    }
-    return cart
-}
-
 export const ShopContextProvider = (props) => {
+    const [cartItem, setCartItem] = useState([])
 
-    const [cartItem, setCartItem] = useState(getDefaultCart())
+    const addToCart = (item) => {
+        const existingItem = cartItem.find(x => x.id === item.id);
+        if (existingItem) {
+            const updatedCart = cartItem.map(x =>
+                x.id === item.id ? { ...x, qty: x.qty + 1 } : x
+            );
+            setCartItem(updatedCart);
+        }
+        else {
+            setCartItem(prev => [...prev, { ...item, qty: 1 }]);
+        }
+    };
 
-    const addToCart = (itemId) => {
-        setCartItem((prev) => {
-            const updatedCart = { ...prev, [itemId]: prev[itemId] + 1 };
-            return updatedCart;
-        });
-    }
+    const updateCart = (updatedItem) => {
+        const updatedCart = cartItem.map(item =>
+            item.id === updatedItem.id ? { ...item, qty: updatedItem.qty } : item
+        );
+        setCartItem(updatedCart);
+    };
+
     const removeFromCart = (itemId) => {
-        setCartItem((prev) => {
-            const updatedCart = { ...prev, [itemId]: prev[itemId] - 1 };
-            return updatedCart;
-        });
-    }
+        const updatedCart = cartItem.filter(item => item.id !== itemId);
+        setCartItem(updatedCart);
+    };
 
-    const contextValue = { AllProducts, cartItem, addToCart, removeFromCart };
+    const contextValue = { AllProducts, cartItem, addToCart, removeFromCart, updateCart };
 
     return (
         <ShopContext.Provider value={contextValue}>

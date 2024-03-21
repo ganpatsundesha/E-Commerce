@@ -56,7 +56,7 @@ const ProductDisplay = ({ product }) => {
                                     <a href="#">XXL</a>
                                 </div>
                             </div>
-                            <CtaBtn onClick={() => { addToCart(product.id) }}>Add to Cart</CtaBtn>
+                            <CtaBtn onClick={() => { addToCart(product) }}>Add to Cart</CtaBtn>
                             <p><strong>Category:</strong> <Link to={"/" + product?.category} onClick={(e) => scrollTo(0, 0)}>{product?.category}</Link></p>
                             <p><strong>Tags:</strong> {product?.category}, Modern, Latest, Popular</p>
                         </div>

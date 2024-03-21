@@ -6,7 +6,7 @@ import p14_img from "../Images/product_14.png";
 let data_product = [
     {
         id: 1,
-        name: "Classic Oxford Shirt",
+        name: "Floral Print Ruffle Sleeve Peplum Top",
         image: p1_img,
         cur_price: 500.00,
         old_price: 800.50,
@@ -16,8 +16,8 @@ let data_product = [
         name: "Crewneck Sweatshirt",
         category: "men",
         image: p14_img,
-        cur_price: 85.0,
-        old_price: 120.5,
+        cur_price: 600.0,
+        old_price: 1000.5,
         review: 50,
     },
     {
@@ -31,7 +31,7 @@ let data_product = [
     },
     {
         id: 4,
-        name: "Plaid Flannel Shirt",
+        name: "Sequin Embellished Graphic Sweatshirt",
         image: p4_img,
         cur_price: 1000.00,
         old_price: 1500.00,
