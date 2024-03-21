@@ -28,6 +28,15 @@ const Header = () => {
                         <Link to="cart"><img src={Cart} alt="cart" /></Link>
                         <div className="cart-counter">{cartItem.length > 9 ? '9+' : cartItem.length}</div>
                     </div>
+                    <div className="toggle"><span></span></div>
+                </div>
+                <div className="mobile">
+                    <ul className="nav">
+                        <li><NavLink to="/">Shop</NavLink></li>
+                        <li><NavLink to="/men">Mens</NavLink></li>
+                        <li><NavLink to="/women">Womens</NavLink></li>
+                        <li><NavLink to="/Kid">Kids</NavLink></li>
+                    </ul>
                 </div>
             </Container>
         </header>

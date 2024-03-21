@@ -1,7 +1,6 @@
 import React, { createContext, useContext, useState } from 'react'
 import AllProducts from "../Assets/Data/all_product"
 
-
 const getTotalPrice = (qty, cur_price) => {0
     return parseInt(qty) * parseInt(cur_price)
 }
