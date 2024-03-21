@@ -1,6 +1,11 @@
 import React, { createContext, useContext, useState } from 'react'
 import AllProducts from "../Assets/Data/all_product"
 
+
+const getTotalPrice = (qty, cur_price) => {0
+    return parseInt(qty) * parseInt(cur_price)
+}
+
 export const ShopContext = createContext(null)
 
 export const UseShopContext = () => {
@@ -15,18 +20,18 @@ export const ShopContextProvider = (props) => {
         const existingItem = cartItem.find(x => x.id === item.id);
         if (existingItem) {
             const updatedCart = cartItem.map(x =>
-                x.id === item.id ? { ...x, qty: x.qty + 1 } : x
+                x.id === item.id ? { ...x, qty: x.qty + 1, totalPrice: getTotalPrice(x.qty + 1, x.cur_price) } : x
             );
             setCartItem(updatedCart);
         }
         else {
-            setCartItem(prev => [...prev, { ...item, qty: 1 }]);
+            setCartItem(prev => [...prev, { ...item, qty: 1, totalPrice: getTotalPrice(1, item.cur_price) }]);
         }
     };
 
     const updateCart = (updatedItem) => {
         const updatedCart = cartItem.map(item =>
-            item.id === updatedItem.id ? { ...item, qty: updatedItem.qty } : item
+            item.id === updatedItem.id ? { ...item, qty: updatedItem.qty, totalPrice: updatedItem.qty * item.cur_price } : item
         );
         setCartItem(updatedCart);
     };
