@@ -36,7 +36,6 @@
             width: 100%;
             margin-bottom: 16px;
             padding: 8px 18px;
-            // outline: none;
             font-size: 16px;
             font-weight: 400;
             border: 1px solid var(--black);
@@ -81,6 +80,7 @@
         .d-flex {
             align-items: flex-start;
             gap: 8px;
+            margin-bottom: 16px;
 
             input[type="checkbox"] {
                 margin-top: 2px;
@@ -102,6 +102,12 @@
                     font-size: 14px;
                 }
             }
+        }
+
+        .error {
+            color: var(--lightRed);
+            font-size: 14px;
+            margin: -10px 0 10px 0;
         }
     }
 }

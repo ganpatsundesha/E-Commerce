@@ -1,0 +1,24 @@
+@import "../../mixins.scss";
+
+.pageNotFound {
+    padding: 20px 0;
+    text-align: center;
+
+    @include xsm {
+        padding: 40px 0;
+    }
+
+    img {
+        margin-bottom: 12px;
+
+        @include md {
+            margin-bottom: 22px;
+        }
+    }
+
+    p {
+        @include md {
+            font-size: 18px;
+        }
+    }
+}

@@ -40,7 +40,7 @@ const Header = () => {
                     </ul>
                     <div className="loginCart">
                         <CtaBtn path="login">Login</CtaBtn>
-                        <Link to="cart"><img src={Cart} alt="cart" /></Link>
+                        <Link to="cart" onClick={(e) => scrollTo(0, 0)}><img src={Cart} alt="cart" /></Link>
                         <div className="cart-counter">{cartItem.length > 9 ? '9+' : cartItem.length}</div>
                     </div>
                     <div className={`toggle ${mobileNav ? "active" : ""}`} onClick={() => setMobileNav(!mobileNav)}><span></span></div>
