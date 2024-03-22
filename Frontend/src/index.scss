@@ -46,6 +46,14 @@ a {
     font-weight: 400;
 }
 
+main {
+    padding-top: 77px;
+
+    @include xsm {
+        padding-top: 97px;
+    }
+}
+
 // Typography
 
 h1 {

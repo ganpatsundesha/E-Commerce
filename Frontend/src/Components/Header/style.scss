@@ -1,14 +1,36 @@
 @import "../../mixins.scss";
 
+.header.true {
+    transform: translate3d(0, 0, 0);
+}
+
+.header.false {
+    transform: translate3d(0, -77px, 0);
+
+    @include xsm {
+        transform: translate3d(0, -97px, 0);
+    }
+}
+
 .header {
     padding: 16px 0;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 9999;
+    background: var(--white);
+    transition: all 0.4s;
 
     .dekstop {
         display: flex;
         align-items: center;
         justify-content: unset;
-        gap: 16px;
+        gap: 5px;
+
+        @include xxsm {
+            gap: 16px;
+        }
 
         @include md {
             justify-content: space-between;
@@ -76,16 +98,33 @@
     .loginCart {
         display: flex;
         align-items: center;
-        gap: 20px;
         position: relative;
         margin-left: auto;
+        gap: 5px;
+
+        @include xxsm {
+            gap: 20px;
+        }
 
         @include md {
             margin-left: unset;
         }
 
+        .cta-btn {
+            font-size: 12px;
+            padding: 5px 15px;
+
+            @include xxsm {
+                font-size: 16px;
+            }
+        }
+
         img {
-            max-width: 30px;
+            max-width: 25px;
+
+            @include xxsm {
+                max-width: 30px;
+            }
         }
 
         .cart-counter {
@@ -94,15 +133,21 @@
             top: 0;
             background: var(--lightRed);
             color: var(--white);
-            font-size: 14px;
+            font-size: 12px;
             font-weight: 400;
             padding: 3px;
             border-radius: 50%;
-            width: 24px;
-            height: 24px;
+            width: 20px;
+            height: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
+
+            @include xxsm {
+                font-size: 14px;
+                width: 24px;
+                height: 24px;
+            }
         }
     }
 
@@ -117,8 +162,14 @@
     }
 
     .mobile {
+        display: none;
+
         .nav {
             display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 5px;
+            margin-top: 20px;
 
             @include md {
                 display: none;
@@ -126,33 +177,63 @@
         }
     }
 
-    .toggle {
+    .mobile.active {
         display: block;
+    }
+
+    .toggle {
+        display: flex;
+        align-items: center;
         height: 20px;
         width: 30px;
         margin-left: 12px;
+        cursor: pointer;
 
         @include md {
             display: none;
         }
 
         span {
-            height: 20px;
+            height: 15px;
             width: 30px;
             display: block;
-            border-top: 3px solid var(--lightRed);
-            border-bottom: 3px solid var(--lightRed);
             position: relative;
+            transition: all 0.4s;
 
-            &::after {
+            &::after,
+            &:before {
                 content: "";
                 position: absolute;
                 width: 100%;
                 height: 3px;
-                top: 50%;
+                top: 0;
                 left: 0;
                 background: var(--lightRed);
                 transform: translateY(-50%);
+                transition: all 0.4s;
+            }
+
+            &:before {
+                bottom: 0;
+                top: unset;
+            }
+        }
+    }
+
+    .toggle.active {
+        span {
+            border: none;
+
+            &::after {
+                top: 50%;
+                transform: translateY(-50%) rotate(45deg);
+                bottom: unset;
+            }
+
+            &::before {
+                top: 50%;
+                transform: translateY(-50%) rotate(-45deg);
+                bottom: unset;
             }
         }
     }
