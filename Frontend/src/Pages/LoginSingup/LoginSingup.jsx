@@ -3,9 +3,12 @@ import "./style.scss";
 import Container from '../../Components/Container/Container';
 import Input from '../../Components/Input/Input';
 import { useNavigate } from 'react-router-dom';
+import { UseShopContext } from '../../Context/ShopContext';
 
 const LoginSingup = () => {
 
+    const { setLogin, login } = UseShopContext()
+    console.log(login);
     const naviagte = useNavigate()
 
     const [user, setUser] = useState({
@@ -41,6 +44,7 @@ const LoginSingup = () => {
 
         if (userData.name.length > 3 && emailRegex.test(userData.email) && ((userData.password.length > 4) && (userData.password.length < 12)) && userData.privacy == true) {
             naviagte('/')
+            setLogin(true)
             console.log(user);
         }
         else {

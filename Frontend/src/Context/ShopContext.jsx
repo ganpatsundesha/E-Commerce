@@ -1,7 +1,8 @@
 import React, { createContext, useContext, useState } from 'react'
 import AllProducts from "../Assets/Data/all_product"
 
-const getTotalPrice = (qty, cur_price) => {0
+const getTotalPrice = (qty, cur_price) => {
+    0
     return parseInt(qty) * parseInt(cur_price)
 }
 
@@ -14,6 +15,7 @@ export const UseShopContext = () => {
 
 export const ShopContextProvider = (props) => {
     const [cartItem, setCartItem] = useState([])
+    const [login, setLogin] = useState(false)
 
     const addToCart = (item) => {
         const existingItem = cartItem.find(x => x.id === item.id);
@@ -40,7 +42,7 @@ export const ShopContextProvider = (props) => {
         setCartItem(updatedCart);
     };
 
-    const contextValue = { AllProducts, cartItem, addToCart, removeFromCart, updateCart };
+    const contextValue = { AllProducts, cartItem, addToCart, removeFromCart, updateCart, setLogin, login };
 
     return (
         <ShopContext.Provider value={contextValue}>

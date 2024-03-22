@@ -8,7 +8,7 @@ import CtaBtn from '../CtaBtn/CtaBtn';
 import { UseShopContext } from '../../Context/ShopContext';
 
 const Header = () => {
-    const { cartItem } = UseShopContext()
+    const { cartItem, login, setLogin } = UseShopContext()
 
     // Responsive Menu
     const [mobileNav, setMobileNav] = useState(false)
@@ -25,6 +25,10 @@ const Header = () => {
         window.addEventListener("scroll", handelScroll);
     }, [position])
 
+
+    const logOutHandel = () => {
+        setLogin(false)
+    }
     return (
         <header className={`header ${visible}`}>
             <Container>
@@ -39,9 +43,11 @@ const Header = () => {
                         <li><NavLink to="/Kid" onClick={(e) => scrollTo(0, 0)}>Kids</NavLink></li>
                     </ul>
                     <div className="loginCart">
-                        <CtaBtn path="login">Login</CtaBtn>
-                        <Link to="cart" onClick={(e) => scrollTo(0, 0)}><img src={Cart} alt="cart" /></Link>
-                        <div className="cart-counter">{cartItem.length > 9 ? '9+' : cartItem.length}</div>
+                        <CtaBtn onClick={logOutHandel} path="login">{login ? "Logout" : "Login"}</CtaBtn>
+                        {
+                            login ? <><Link to="cart" onClick={(e) => scrollTo(0, 0)}><img src={Cart} alt="cart" /></Link>
+                                <div className="cart-counter">{cartItem.length > 9 ? '9+' : cartItem.length}</div></> : <></>
+                        }
                     </div>
                     <div className={`toggle ${mobileNav ? "active" : ""}`} onClick={() => setMobileNav(!mobileNav)}><span></span></div>
                 </div>
