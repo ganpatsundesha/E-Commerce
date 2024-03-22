@@ -33,10 +33,10 @@ const Header = () => {
                         <Link to="/"><img src={Logo} alt="Logo" /> Trend</Link>
                     </div>
                     <ul className="nav">
-                        <li><NavLink to="/">Shop</NavLink></li>
-                        <li><NavLink to="/men">Mens</NavLink></li>
-                        <li><NavLink to="/women">Womens</NavLink></li>
-                        <li><NavLink to="/Kid">Kids</NavLink></li>
+                        <li><NavLink to="/" onClick={(e) => scrollTo(0, 0)}>Shop</NavLink></li>
+                        <li><NavLink to="/men" onClick={(e) => scrollTo(0, 0)}>Mens</NavLink></li>
+                        <li><NavLink to="/women" onClick={(e) => scrollTo(0, 0)}>Womens</NavLink></li>
+                        <li><NavLink to="/Kid" onClick={(e) => scrollTo(0, 0)}>Kids</NavLink></li>
                     </ul>
                     <div className="loginCart">
                         <CtaBtn path="login">Login</CtaBtn>
@@ -47,10 +47,10 @@ const Header = () => {
                 </div>
                 <div className={`mobile ${mobileNav ? "active" : ""}`}>
                     <ul className="nav">
-                        <li><NavLink to="/" onClick={() => setMobileNav(false)}>Shop</NavLink></li>
-                        <li><NavLink to="/men" onClick={() => setMobileNav(false)}>Mens</NavLink></li>
-                        <li><NavLink to="/women" onClick={() => setMobileNav(false)}>Womens</NavLink></li>
-                        <li><NavLink to="/Kid" onClick={() => setMobileNav(false)}>Kids</NavLink></li>
+                        <li><NavLink to="/" onClick={() => { setMobileNav(false); scrollTo(0, 0); }}>Shop</NavLink></li>
+                        <li><NavLink to="/men" onClick={() => { setMobileNav(false); scrollTo(0, 0); }}>Mens</NavLink></li>
+                        <li><NavLink to="/women" onClick={() => { setMobileNav(false); scrollTo(0, 0); }}>Womens</NavLink></li>
+                        <li><NavLink to="/Kid" onClick={() => { setMobileNav(false); scrollTo(0, 0); }}>Kids</NavLink></li>
                     </ul>
                 </div>
             </Container>
