@@ -18,15 +18,20 @@ export const ShopContextProvider = (props) => {
     const [login, setLogin] = useState(false)
 
     const addToCart = (item) => {
-        const existingItem = cartItem.find(x => x.id === item.id);
-        if (existingItem) {
-            const updatedCart = cartItem.map(x =>
-                x.id === item.id ? { ...x, qty: x.qty + 1, totalPrice: getTotalPrice(x.qty + 1, x.cur_price) } : x
-            );
-            setCartItem(updatedCart);
+        if (login) {
+            const existingItem = cartItem.find(x => x.id === item.id);
+            if (existingItem) {
+                const updatedCart = cartItem.map(x =>
+                    x.id === item.id ? { ...x, qty: x.qty + 1, totalPrice: getTotalPrice(x.qty + 1, x.cur_price) } : x
+                );
+                setCartItem(updatedCart);
+            }
+            else {
+                setCartItem(prev => [...prev, { ...item, qty: 1, totalPrice: getTotalPrice(1, item.cur_price) }]);
+            }
         }
         else {
-            setCartItem(prev => [...prev, { ...item, qty: 1, totalPrice: getTotalPrice(1, item.cur_price) }]);
+            console.log("still not logedin");
         }
     };
 

@@ -4,11 +4,11 @@ import Container from '../../Components/Container/Container';
 import Input from '../../Components/Input/Input';
 import { useNavigate } from 'react-router-dom';
 import { UseShopContext } from '../../Context/ShopContext';
+import axios from 'axios';
 
 const LoginSingup = () => {
 
-    const { setLogin, login } = UseShopContext()
-    console.log(login);
+    const { setLogin } = UseShopContext()
     const naviagte = useNavigate()
 
     const [user, setUser] = useState({
@@ -30,6 +30,20 @@ const LoginSingup = () => {
         handelRegister(user)
     }
 
+    const sendData = async (userData) => {
+
+        const response = await fetch('https://reqres.in/api/login', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                email: userData.email,
+                password: userData.password
+            })
+        });
+        const data = await response.json();
+        console.log(data);
+    }
+
     const handelChange = (e) => {
         const { name, value, type, checked } = e.target
         setUser((prevData) => ({ ...prevData, [name]: value }))
@@ -43,9 +57,9 @@ const LoginSingup = () => {
         let newErrors = {};
 
         if (userData.name.length > 3 && emailRegex.test(userData.email) && ((userData.password.length > 4) && (userData.password.length < 12)) && userData.privacy == true) {
-            naviagte('/')
+            // naviagte('/')
             setLogin(true)
-            console.log(user);
+            sendData(userData)
         }
         else {
             if (userData.name.length === 0) {

@@ -61,40 +61,40 @@ const CartItems = () => {
                         </div>
                         {
                             cartItem.length > 0 ? <>
-                            <div className="cartTotal">
-                                <h5>Cart Totals</h5>
-                                <div className="row">
-                                    <div className="col-lg-6">
-                                        <div className="promoCode">
-                                            <p>If you have any <span>Promo code</span>, Enter it here</p>
-                                            <form action="#" onSubmit={formSubmit}>
-                                                <Input type="text" placeholder="Promo Code" />
-                                                <Input type="submit" />
-                                            </form>
-                                        </div>
-                                    </div>
-                                    <div className="col-lg-6">
-                                        <div className="total-box">
-                                            <div className="d-flex">
-                                                <p>subtotal</p>
-                                                <span>₹ {totalPrice}</span>
+                                <div className="cartTotal">
+                                    <h5>Cart Totals</h5>
+                                    <div className="row">
+                                        <div className="col-lg-6">
+                                            <div className="promoCode">
+                                                <p>If you have any <span>Promo code</span>, Enter it here</p>
+                                                <form action="#" onSubmit={formSubmit}>
+                                                    <Input type="text" placeholder="Promo Code" />
+                                                    <Input type="submit" />
+                                                </form>
                                             </div>
-                                            <div className="d-flex">
-                                                <div>
-                                                    <p>Shipping Fee</p>
+                                        </div>
+                                        <div className="col-lg-6">
+                                            <div className="total-box">
+                                                <div className="d-flex">
+                                                    <p>subtotal</p>
+                                                    <span>₹ {totalPrice}</span>
                                                 </div>
-                                                <span>₹ {shippingCharge}</span>
+                                                <div className="d-flex">
+                                                    <div>
+                                                        <p>Shipping Fee</p>
+                                                    </div>
+                                                    <span>₹ {shippingCharge}</span>
+                                                </div>
+                                                <div className="d-flex">
+                                                    <p><span>Total</span></p>
+                                                    <span>₹ {totalPrice + shippingCharge}</span>
+                                                </div>
+                                                <p>{totalPrice > 500 ? <></> : <>Enjoy free delivery on orders above ₹ 500</>}</p>
+                                                <CtaBtn>proceed to payment</CtaBtn>
                                             </div>
-                                            <div className="d-flex">
-                                                <p><span>Total</span></p>
-                                                <span>₹ {totalPrice + shippingCharge}</span>
-                                            </div>
-                                            <p>Enjoy free delivery on orders above ₹ 500</p>
-                                            <CtaBtn>proceed to payment</CtaBtn>
                                         </div>
                                     </div>
-                                </div>
-                            </div></> : <></>
+                                </div></> : <></>
                         }
                     </div>
                 </div>
